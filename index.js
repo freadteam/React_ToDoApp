@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import "./style.css";
 
 class TodoApp extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class TodoApp extends React.Component {
   }
   render() {
   	return (
-  		<div>
+  		<div className="list">
         	<h2>TodoApp</h2>
       	</div>
   	);
