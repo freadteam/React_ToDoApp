@@ -1,7 +1,7 @@
 {
   "name": "React_ToDoApp",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "https://github.com/freadteam/React_ToDoApp.git",
   "author": "freadteam <freadteam@gmail.com>",
   "license": "MIT",
@@ -13,8 +13,5 @@
   "devDependencies": {
     "babel-preset-react-app": "^3.1.2",
     "parcel-bundler": "^1.9.7"
-  },
-  "presets": [
-    "react-app"
-  ]
+  }
 }
