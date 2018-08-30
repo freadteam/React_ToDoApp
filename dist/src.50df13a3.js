@@ -24104,76 +24104,197 @@ exports.Switch = _Switch3.default;
 exports.generatePath = _generatePath3.default;
 exports.matchPath = _matchPath3.default;
 exports.withRouter = _withRouter3.default;
-},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-
-    cssTimeout = null;
-  }, 50);
-}
-
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../src/style.css":[function(require,module,exports) {
-
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../src/index.js":[function(require,module,exports) {
+},{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"../src/components/List.js":[function(require,module,exports) {
 'use strict';
 
-var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/index.js';
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.List = undefined;
+var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/components/List.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var List = exports.List = function (_React$Component) {
+  _inherits(List, _React$Component);
+
+  function List(props) {
+    _classCallCheck(this, List);
+
+    return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).call(this, props));
+  }
+
+  _createClass(List, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var list = this.props.todos.map(function (todo) {
+        return _react2.default.createElement(
+          'li',
+          { key: todo.id, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 12
+            },
+            __self: _this2
+          },
+          _react2.default.createElement('input', { type: 'checkbox', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            },
+            __self: _this2
+          }),
+          ' ',
+          todo.todo
+        );
+      });
+
+      return _react2.default.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 19
+          },
+          __self: this
+        },
+        _react2.default.createElement(
+          'h2',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 20
+            },
+            __self: this
+          },
+          'List'
+        ),
+        list
+      );
+    }
+  }]);
+
+  return List;
+}(_react2.default.Component);
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../src/components/AddTodo.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.AddTodo = undefined;
+var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/components/AddTodo.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AddTodo = exports.AddTodo = function (_React$Component) {
+  _inherits(AddTodo, _React$Component);
+
+  function AddTodo(props) {
+    _classCallCheck(this, AddTodo);
+
+    var _this = _possibleConstructorReturn(this, (AddTodo.__proto__ || Object.getPrototypeOf(AddTodo)).call(this, props));
+
+    _this.handleChange = function (event) {
+      var todo = event.target.value;
+      _this.setState({ todo: todo });
+    };
+
+    _this.handleSubmit = function (event) {
+      event.preventDefault();
+
+      _this.props.addTodo(_this.state.todo);
+      _this.setState({ todo: "" });
+    };
+
+    _this.state = { todo: "" };
+    return _this;
+  }
+
+  _createClass(AddTodo, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 24
+          },
+          __self: this
+        },
+        _react2.default.createElement(
+          'h2',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 25
+            },
+            __self: this
+          },
+          'AddTodo'
+        ),
+        _react2.default.createElement(
+          'form',
+          { onSubmit: this.handleSubmit, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 26
+            },
+            __self: this
+          },
+          _react2.default.createElement('input', { type: 'text', value: this.state.todo, onChange: this.handleChange, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27
+            },
+            __self: this
+          })
+        )
+      );
+    }
+  }]);
+
+  return AddTodo;
+}(_react2.default.Component);
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../src/TodoApp.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TodoApp = undefined;
+var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/TodoApp.js';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -24187,9 +24308,13 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRouterDom = require('react-router-dom');
 
-require('./style.css');
+var _List = require('./components/List');
+
+var _AddTodo = require('./components/AddTodo');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -24197,13 +24322,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TodoApp = function (_React$Component) {
+var TodoApp = exports.TodoApp = function (_React$Component) {
   _inherits(TodoApp, _React$Component);
 
   function TodoApp(props) {
     _classCallCheck(this, TodoApp);
 
-    return _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
+
+    _this.addTodo = function (todo) {
+      var nextId = _this.state.nextId;
+
+      _this.setState({
+        todos: [].concat(_toConsumableArray(_this.state.todos), [{ id: nextId, todo: todo, active: true }]),
+        nextId: nextId + 1
+      });
+    };
+
+    _this.state = {
+      todos: [],
+      nextId: 0
+    };
+    return _this;
   }
 
   _createClass(TodoApp, [{
@@ -24211,9 +24351,10 @@ var TodoApp = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'list', __source: {
+        {
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 12
+            lineNumber: 27
           },
           __self: this
         },
@@ -24222,27 +24363,55 @@ var TodoApp = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 13
+              lineNumber: 28
             },
             __self: this
           },
           'TodoApp'
-        )
+        ),
+        _react2.default.createElement(_AddTodo.AddTodo, { addTodo: this.addTodo, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 29
+          },
+          __self: this
+        }),
+        _react2.default.createElement(_List.List, { todos: this.state.todos, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 30
+          },
+          __self: this
+        })
       );
     }
   }]);
 
   return TodoApp;
 }(_react2.default.Component);
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./components/List":"../src/components/List.js","./components/AddTodo":"../src/components/AddTodo.js"}],"../src/index.js":[function(require,module,exports) {
+'use strict';
 
-_reactDom2.default.render(_react2.default.createElement(TodoApp, {
+var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/index.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _TodoApp = require('./TodoApp');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom2.default.render(_react2.default.createElement(_TodoApp.TodoApp, {
   __source: {
     fileName: _jsxFileName,
-    lineNumber: 20
+    lineNumber: 5
   },
   __self: undefined
 }), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./style.css":"../src/style.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./TodoApp":"../src/TodoApp.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -24271,7 +24440,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63670' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '54467' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
