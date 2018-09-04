@@ -1,20 +1,19 @@
 {
   "name": "React_ToDoApp",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": "https://github.com/freadteam/React_ToDoApp.git",
   "author": "freadteam <freadteam@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "components": "^0.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-react-app": "^3.1.2",
     "parcel-bundler": "^1.9.7"
-  },
-  "presets": [
-    "react-app"
-  ]
+  }
 }
