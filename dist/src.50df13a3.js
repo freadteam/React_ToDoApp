@@ -24154,13 +24154,14 @@ var List = exports.List = function (_React$Component) {
             },
             __self: _this2
           },
-          _react2.default.createElement('input', { type: 'checkbox', __source: {
+          _react2.default.createElement('input', { type: 'checkbox', onChange: function onChange() {
+              _this2.props.changeChecked(todo.id);
+            }, __source: {
               fileName: _jsxFileName,
               lineNumber: 13
             },
             __self: _this2
           }),
-          ' ',
           todo.todo
         );
       });
@@ -24170,7 +24171,7 @@ var List = exports.List = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 22
           },
           __self: this
         },
@@ -24179,13 +24180,23 @@ var List = exports.List = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 23
             },
             __self: this
           },
           'List'
         ),
-        list
+        _react2.default.createElement(
+          'ul',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            },
+            __self: this
+          },
+          list
+        )
       );
     }
   }]);
@@ -24234,7 +24245,6 @@ var AddTodo = exports.AddTodo = function (_React$Component) {
 
     _this.handleSubmit = function (event) {
       event.preventDefault();
-
       _this.props.addTodo(_this.state.todo);
       _this.setState({ todo: "" });
     };
@@ -24251,7 +24261,7 @@ var AddTodo = exports.AddTodo = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 24
+            lineNumber: 23
           },
           __self: this
         },
@@ -24260,7 +24270,7 @@ var AddTodo = exports.AddTodo = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 25
+              lineNumber: 24
             },
             __self: this
           },
@@ -24270,13 +24280,13 @@ var AddTodo = exports.AddTodo = function (_React$Component) {
           'form',
           { onSubmit: this.handleSubmit, __source: {
               fileName: _jsxFileName,
-              lineNumber: 26
+              lineNumber: 25
             },
             __self: this
           },
-          _react2.default.createElement('input', { type: 'text', value: this.state.todo, onChange: this.handleChange, __source: {
+          _react2.default.createElement('input', { type: 'text', placeholder: 'What needs to be done?', autoFocus: true, value: this.state.todo, onChange: this.handleChange, __source: {
               fileName: _jsxFileName,
-              lineNumber: 27
+              lineNumber: 26
             },
             __self: this
           })
@@ -24293,10 +24303,12 @@ var AddTodo = exports.AddTodo = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TodoApp = undefined;
-var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/TodoApp.js';
+exports.AllTodoApp = exports.App = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/TodoApp.js',
+    _this = undefined;
 
 var _react = require('react');
 
@@ -24322,31 +24334,168 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TodoApp = exports.TodoApp = function (_React$Component) {
-  _inherits(TodoApp, _React$Component);
+var App = exports.App = function App() {
+  return _react2.default.createElement(
+    _reactRouterDom.BrowserRouter,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 8
+      },
+      __self: _this
+    },
+    _react2.default.createElement(
+      'div',
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9
+        },
+        __self: _this
+      },
+      _react2.default.createElement(
+        'ul',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 10
+          },
+          __self: _this
+        },
+        _react2.default.createElement(
+          'li',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 11
+            },
+            __self: _this
+          },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 11
+              },
+              __self: _this
+            },
+            'AllTodo'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 12
+            },
+            __self: _this
+          },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/undone', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 12
+              },
+              __self: _this
+            },
+            'UndoneTodo'
+          )
+        ),
+        _react2.default.createElement(
+          'li',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 13
+            },
+            __self: _this
+          },
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: '/done', __source: {
+                fileName: _jsxFileName,
+                lineNumber: 13
+              },
+              __self: _this
+            },
+            'DoneTodo'
+          )
+        )
+      ),
+      _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: AllTodoApp, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15
+        },
+        __self: _this
+      }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/undone', component: UndoneTodo, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16
+        },
+        __self: _this
+      }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: '/done', component: DoneTodo, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 17
+        },
+        __self: _this
+      })
+    )
+  );
+};
 
-  function TodoApp(props) {
-    _classCallCheck(this, TodoApp);
+var AllTodoApp = exports.AllTodoApp = function (_React$Component) {
+  _inherits(AllTodoApp, _React$Component);
 
-    var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
+  function AllTodoApp(props) {
+    _classCallCheck(this, AllTodoApp);
 
-    _this.addTodo = function (todo) {
-      var nextId = _this.state.nextId;
+    var _this2 = _possibleConstructorReturn(this, (AllTodoApp.__proto__ || Object.getPrototypeOf(AllTodoApp)).call(this, props));
 
-      _this.setState({
-        todos: [].concat(_toConsumableArray(_this.state.todos), [{ id: nextId, todo: todo, active: true }]),
+    _this2.addTodo = function (todo) {
+      var nextId = _this2.state.nextId;
+
+      _this2.setState({
+        todos: [].concat(_toConsumableArray(_this2.state.todos), [{ id: nextId, todo: todo, checked: false }]),
         nextId: nextId + 1
       });
     };
 
-    _this.state = {
+    _this2.changeChecked = function (id) {
+      var todos = _this2.state.todos;
+
+      todos.map(function (todo) {
+        if (todo.id == id) {
+          _this2.change(id);
+        };
+      });
+    };
+
+    _this2.state = {
       todos: [],
       nextId: 0
     };
-    return _this;
+    return _this2;
   }
 
-  _createClass(TodoApp, [{
+  // ToDoを追加
+
+
+  _createClass(AllTodoApp, [{
+    key: 'change',
+
+
+    //todosを更新する
+    value: function change(i) {
+      var copiedtodos = this.state.todos.slice();
+      copiedtodos[i] = { id: i, todo: copiedtodos[i].todo, checked: !copiedtodos[i].checked };
+      this.setState({ todos: copiedtodos });
+    }
+
+    // checkedのtrue/falseを切り替える
+
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -24354,7 +24503,7 @@ var TodoApp = exports.TodoApp = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
+            lineNumber: 59
           },
           __self: this
         },
@@ -24363,7 +24512,7 @@ var TodoApp = exports.TodoApp = function (_React$Component) {
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 28
+              lineNumber: 60
             },
             __self: this
           },
@@ -24371,13 +24520,13 @@ var TodoApp = exports.TodoApp = function (_React$Component) {
         ),
         _react2.default.createElement(_AddTodo.AddTodo, { addTodo: this.addTodo, __source: {
             fileName: _jsxFileName,
-            lineNumber: 29
+            lineNumber: 61
           },
           __self: this
         }),
-        _react2.default.createElement(_List.List, { todos: this.state.todos, __source: {
+        _react2.default.createElement(_List.List, { todos: this.state.todos, changeChecked: this.changeChecked, __source: {
             fileName: _jsxFileName,
-            lineNumber: 30
+            lineNumber: 62
           },
           __self: this
         })
@@ -24385,7 +24534,91 @@ var TodoApp = exports.TodoApp = function (_React$Component) {
     }
   }]);
 
-  return TodoApp;
+  return AllTodoApp;
+}(_react2.default.Component);
+
+///未完了todo
+
+
+var UndoneTodo = function (_React$Component2) {
+  _inherits(UndoneTodo, _React$Component2);
+
+  function UndoneTodo(props) {
+    _classCallCheck(this, UndoneTodo);
+
+    return _possibleConstructorReturn(this, (UndoneTodo.__proto__ || Object.getPrototypeOf(UndoneTodo)).call(this, props));
+  }
+
+  _createClass(UndoneTodo, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 75
+          },
+          __self: this
+        },
+        _react2.default.createElement(
+          'h2',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 76
+            },
+            __self: this
+          },
+          'UndoneTodo'
+        )
+      );
+    }
+  }]);
+
+  return UndoneTodo;
+}(_react2.default.Component);
+
+//完了todo
+
+
+var DoneTodo = function (_React$Component3) {
+  _inherits(DoneTodo, _React$Component3);
+
+  function DoneTodo(props) {
+    _classCallCheck(this, DoneTodo);
+
+    return _possibleConstructorReturn(this, (DoneTodo.__proto__ || Object.getPrototypeOf(DoneTodo)).call(this, props));
+  }
+
+  _createClass(DoneTodo, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 89
+          },
+          __self: this
+        },
+        _react2.default.createElement(
+          'h2',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 90
+            },
+            __self: this
+          },
+          'DoneTodo'
+        )
+      );
+    }
+  }]);
+
+  return DoneTodo;
 }(_react2.default.Component);
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./components/List":"../src/components/List.js","./components/AddTodo":"../src/components/AddTodo.js"}],"../src/index.js":[function(require,module,exports) {
 'use strict';
@@ -24404,7 +24637,7 @@ var _TodoApp = require('./TodoApp');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_TodoApp.TodoApp, {
+_reactDom2.default.render(_react2.default.createElement(_TodoApp.App, {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 5

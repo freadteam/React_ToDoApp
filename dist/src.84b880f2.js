@@ -24105,23 +24105,19 @@ exports.generatePath = _generatePath3.default;
 exports.matchPath = _matchPath3.default;
 exports.withRouter = _withRouter3.default;
 },{"./BrowserRouter":"../node_modules/react-router-dom/es/BrowserRouter.js","./HashRouter":"../node_modules/react-router-dom/es/HashRouter.js","./Link":"../node_modules/react-router-dom/es/Link.js","./MemoryRouter":"../node_modules/react-router-dom/es/MemoryRouter.js","./NavLink":"../node_modules/react-router-dom/es/NavLink.js","./Prompt":"../node_modules/react-router-dom/es/Prompt.js","./Redirect":"../node_modules/react-router-dom/es/Redirect.js","./Route":"../node_modules/react-router-dom/es/Route.js","./Router":"../node_modules/react-router-dom/es/Router.js","./StaticRouter":"../node_modules/react-router-dom/es/StaticRouter.js","./Switch":"../node_modules/react-router-dom/es/Switch.js","./generatePath":"../node_modules/react-router-dom/es/generatePath.js","./matchPath":"../node_modules/react-router-dom/es/matchPath.js","./withRouter":"../node_modules/react-router-dom/es/withRouter.js"}],"../src/components/List.jsx":[function(require,module,exports) {
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.List = undefined;
-var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/components/List.jsx';
+var _jsxFileName = "/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/components/List.jsx";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24141,78 +24137,99 @@ var List = exports.List = function (_React$Component) {
   }
 
   _createClass(List, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       var _this2 = this;
 
       var list = this.props.todos.map(function (todo) {
         return _react2.default.createElement(
-          'li',
-          {
+          "li",
+          { key: todo.id, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 11
+            },
+            __self: _this2
+          },
+          _react2.default.createElement("input", {
+            type: "checkbox",
+            checked: todo.checked,
+            onChange: function onChange() {
+              _this2.props.changeChecked(todo.id);
+            },
             __source: {
               fileName: _jsxFileName,
               lineNumber: 12
             },
             __self: _this2
-          },
-          _react2.default.createElement('input', { type: 'checkbox', value: todo.active = false, __source: {
-              fileName: _jsxFileName,
-              lineNumber: 13
-            },
-            __self: _this2
           }),
-          ' id:',
-          todo.id,
-          ' ',
-          todo.todo
+          todo.todo,
+          _react2.default.createElement(
+            "button",
+            {
+              onClick: function onClick() {
+                _this2.props.deleteTodo(todo.id);
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 20
+              },
+              __self: _this2
+            },
+            "delete"
+          )
         );
       });
-
       return _react2.default.createElement(
-        'div',
+        "div",
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 19
+            lineNumber: 31
           },
           __self: this
         },
         _react2.default.createElement(
-          'h2',
+          "h2",
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
+              lineNumber: 32
             },
             __self: this
           },
-          'List'
+          "TodoList"
         ),
-        list
+        _react2.default.createElement(
+          "ul",
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 33
+            },
+            __self: this
+          },
+          list
+        )
       );
     }
   }]);
 
   return List;
 }(_react2.default.Component);
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../src/components/AddTodo.jsx":[function(require,module,exports) {
-'use strict';
+},{"react":"../node_modules/react/index.js"}],"../src/components/AddTodo.jsx":[function(require,module,exports) {
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.AddTodo = undefined;
-var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/components/AddTodo.jsx';
+var _jsxFileName = "/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/components/AddTodo.jsx";
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = require('react-dom');
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24230,32 +24247,53 @@ var AddTodo = exports.AddTodo = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (AddTodo.__proto__ || Object.getPrototypeOf(AddTodo)).call(this, props));
 
-    _this.state = {};
+    _this.handleChange = function (event) {
+      var todo = event.target.value;
+      _this.setState({ todo: todo });
+    };
+
+    _this.handleSubmit = function (event) {
+      event.preventDefault();
+      _this.props.addTodo(_this.state.todo);
+      _this.setState({ todo: "" });
+    };
+
+    _this.state = { todo: "" };
     return _this;
   }
 
   _createClass(AddTodo, [{
-    key: 'render',
+    key: "render",
     value: function render() {
       return _react2.default.createElement(
-        'div',
+        "div",
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 15
+            lineNumber: 22
           },
           __self: this
         },
         _react2.default.createElement(
-          'h2',
-          {
-            __source: {
+          "form",
+          { onSubmit: this.handleSubmit, __source: {
               fileName: _jsxFileName,
-              lineNumber: 16
+              lineNumber: 23
             },
             __self: this
           },
-          'AddTodo'
+          _react2.default.createElement("input", {
+            type: "text",
+            placeholder: "What needs to be done?",
+            autoFocus: true,
+            value: this.state.todo,
+            onChange: this.handleChange,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            },
+            __self: this
+          })
         )
       );
     }
@@ -24263,14 +24301,14 @@ var AddTodo = exports.AddTodo = function (_React$Component) {
 
   return AddTodo;
 }(_react2.default.Component);
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js"}],"../src/TodoApp.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js"}],"../src/components/TodoApp.jsx":[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.TodoApp = undefined;
-var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/TodoApp.jsx';
+var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/components/TodoApp.jsx';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -24278,15 +24316,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = require('react-dom');
+var _List = require('./List');
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _reactRouterDom = require('react-router-dom');
-
-var _List = require('./components/List');
-
-var _AddTodo = require('./components/AddTodo');
+var _AddTodo = require('./AddTodo');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24296,28 +24328,15 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//全てのtodo一覧
 var TodoApp = exports.TodoApp = function (_React$Component) {
   _inherits(TodoApp, _React$Component);
 
   function TodoApp(props) {
     _classCallCheck(this, TodoApp);
 
-    var _this = _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
-
-    _this.state = {
-      todos: [{ id: 4, todo: "tef" }],
-      nextId: 0
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (TodoApp.__proto__ || Object.getPrototypeOf(TodoApp)).call(this, props));
   }
-
-  // addTodo = todo => {
-  //    const {todos, nextId} = this.state;
-  //    this.setState({
-  //      todos: [...todos, {id: nextId, todo: todo, active: todos.active}],
-  //      nextId: nextId + 1
-  //    })
-  //  };
 
   _createClass(TodoApp, [{
     key: 'render',
@@ -24327,30 +24346,25 @@ var TodoApp = exports.TodoApp = function (_React$Component) {
         {
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27
+            lineNumber: 13
           },
           __self: this
         },
-        _react2.default.createElement(
-          'h2',
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 28
-            },
-            __self: this
-          },
-          'TodoApp'
-        ),
-        _react2.default.createElement(_AddTodo.AddTodo, { addTodo: this.addTodo, __source: {
+        _react2.default.createElement(_AddTodo.AddTodo, {
+          addTodo: this.props.addTodo,
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 29
+            lineNumber: 14
           },
           __self: this
         }),
-        _react2.default.createElement(_List.List, { todos: this.state.todos, __source: {
+        _react2.default.createElement(_List.List, {
+          todos: this.props.todos,
+          deleteTodo: this.props.deleteTodo,
+          changeChecked: this.props.changeChecked,
+          __source: {
             fileName: _jsxFileName,
-            lineNumber: 30
+            lineNumber: 17
           },
           __self: this
         })
@@ -24360,7 +24374,265 @@ var TodoApp = exports.TodoApp = function (_React$Component) {
 
   return TodoApp;
 }(_react2.default.Component);
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./components/List":"../src/components/List.jsx","./components/AddTodo":"../src/components/AddTodo.jsx"}],"../src/index.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./List":"../src/components/List.jsx","./AddTodo":"../src/components/AddTodo.jsx"}],"../src/App.jsx":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.App = undefined;
+var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/App.jsx';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _TodoApp = require('./components/TodoApp');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var App = exports.App = function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App() {
+    _classCallCheck(this, App);
+
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+
+    _this.addTodo = function (todo) {
+      var nextId = _this.state.nextId;
+
+      _this.setState({
+        todos: [].concat(_toConsumableArray(_this.state.todos), [{ id: nextId, todo: todo, checked: false }]),
+        nextId: nextId + 1
+      });
+    };
+
+    _this.deleteTodo = function (id) {
+      _this.setState({
+        todos: _this.state.todos.filter(function (todo) {
+          return todo.id != id;
+        })
+      });
+    };
+
+    _this.changeChecked = function (id) {
+      var todos = _this.state.todos;
+
+      var index = todos.findIndex(function (todo) {
+        return todo.id == id;
+      });
+      todos[index] = { id: id, todo: todos[index].todo, checked: !todos[index].checked };
+      _this.setState({
+        todos: todos
+      });
+    };
+
+    _this.state = {
+      todos: [
+        //id:0, todo: text, checked: false
+      ],
+      nextId: 0
+    };
+    return _this;
+  }
+
+  // ToDoを追加
+
+
+  //todoを消す
+
+
+  // chenkboxが押された時にcheckedのtrue/falseを切り替える
+
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      //完了todos
+      var doneTodos = this.state.todos.filter(function (todo) {
+        return todo.checked == true;
+      });
+      //未完了todos
+      var undoneTodos = this.state.todos.filter(function (todo) {
+        return todo.checked == false;
+      });
+
+      return _react2.default.createElement(
+        _reactRouterDom.BrowserRouter,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 57
+          },
+          __self: this
+        },
+        _react2.default.createElement(
+          'div',
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 58
+            },
+            __self: this
+          },
+          _react2.default.createElement(
+            'h2',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 59
+              },
+              __self: this
+            },
+            'TodoApp'
+          ),
+          _react2.default.createElement(
+            'ul',
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 60
+              },
+              __self: this
+            },
+            _react2.default.createElement(
+              'li',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 61
+                },
+                __self: this
+              },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 61
+                  },
+                  __self: this
+                },
+                'Todo'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 62
+                },
+                __self: this
+              },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/undone', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 62
+                  },
+                  __self: this
+                },
+                'UnDoneTodo'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              {
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 63
+                },
+                __self: this
+              },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/done', __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 63
+                  },
+                  __self: this
+                },
+                'DoneTodo'
+              )
+            )
+          ),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', render: function render() {
+              return _react2.default.createElement(_TodoApp.TodoApp, {
+                todos: _this2.state.todos,
+                addTodo: _this2.addTodo,
+                deleteTodo: _this2.deleteTodo,
+                changeChecked: _this2.changeChecked,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 67
+                },
+                __self: _this2
+              });
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 66
+            },
+            __self: this
+          }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/undone/', render: function render() {
+              return _react2.default.createElement(_TodoApp.TodoApp, {
+                todos: undoneTodos,
+                deleteTodo: _this2.deleteTodo,
+                addTodo: _this2.addTodo,
+                changeChecked: _this2.changeChecked,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 75
+                },
+                __self: _this2
+              });
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 74
+            },
+            __self: this
+          }),
+          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/done', render: function render() {
+              return _react2.default.createElement(_TodoApp.TodoApp, {
+                todos: doneTodos,
+                deleteTodo: _this2.deleteTodo,
+                addTodo: _this2.addTodo,
+                changeChecked: _this2.changeChecked,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 83
+                },
+                __self: _this2
+              });
+            }, __source: {
+              fileName: _jsxFileName,
+              lineNumber: 82
+            },
+            __self: this
+          })
+        )
+      );
+    }
+  }]);
+
+  return App;
+}(_react2.default.Component);
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./components/TodoApp":"../src/components/TodoApp.jsx"}],"../src/index.jsx":[function(require,module,exports) {
 'use strict';
 
 var _jsxFileName = '/Users/freadteam/Desktop/Scoville/React_ToDoApp/src/index.jsx';
@@ -24373,18 +24645,18 @@ var _reactDom = require('react-dom');
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _TodoApp = require('./TodoApp');
+var _App = require('./App');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_TodoApp.TodoApp, {
+_reactDom2.default.render(_react2.default.createElement(_App.App, {
   __source: {
     fileName: _jsxFileName,
     lineNumber: 5
   },
   __self: undefined
 }), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./TodoApp":"../src/TodoApp.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./App":"../src/App.jsx"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -24413,7 +24685,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '50915' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '52411' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

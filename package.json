@@ -1,7 +1,7 @@
 {
   "name": "React_ToDoApp",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "repository": "https://github.com/freadteam/React_ToDoApp.git",
   "author": "freadteam <freadteam@gmail.com>",
   "license": "MIT",
