@@ -44,12 +44,13 @@ import { TodoApp } from './components/TodoApp';
   };
 
   render() {
+     const {todos} = this.state;
     //完了todos
-    let doneTodos = this.state.todos.filter(todo => {
+    let doneTodos = todos.filter(todo => {
       return todo.checked == true;
     });
     //未完了todos
-    let undoneTodos = this.state.todos.filter(todo => {
+    let undoneTodos = todos.filter(todo => {
       return todo.checked == false;
     });
 
@@ -83,7 +84,8 @@ import { TodoApp } from './components/TodoApp';
             <TodoApp
               todos={doneTodos}
               deleteTodo={this.deleteTodo}
-              addTodo={this.addTodo}
+              addTod
+              o={this.addTodo}
               changeChecked={this.changeChecked}
             />
           )}/>
