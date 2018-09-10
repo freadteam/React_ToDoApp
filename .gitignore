@@ -1,1 +1,3 @@
-/Users/freadteam/Desktop/Scoville/React_ToDoApp/.cache
+.cache/
+dist/
+node_modules/
