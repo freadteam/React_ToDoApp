@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom'
-import { TodoApp } from './components/TodoApp';
+import { List } from './components/List';
+import { AddTodo } from './components/AddTodo';
 
  export class App extends React.Component {
   constructor() {
@@ -65,29 +66,34 @@ import { TodoApp } from './components/TodoApp';
           </ul>
           
           <Route exact path='/' render={() => (
-            <TodoApp 
-              todos={this.state.todos}
-              addTodo={this.addTodo}
-              deleteTodo={this.deleteTodo}
-              changeChecked={this.changeChecked}
-            />
+            <div>
+              <AddTodo addTodo={this.addTodo} />
+              <List 
+                todos={this.state.todos} 
+                deleteTodo={this.deleteTodo}  
+                changeChecked={this.changeChecked} 
+              />
+            </div>
           )}/>
           <Route exact path='/undone/' render={() => (
-            <TodoApp 
-              todos={undoneTodos}
-              deleteTodo={this.deleteTodo}
-              addTodo={this.addTodo}
-              changeChecked={this.changeChecked}
-            />
+            <div>
+              <AddTodo addTodo={this.addTodo} />
+              <List 
+                todos={undoneTodos} 
+                deleteTodo={this.deleteTodo}  
+                changeChecked={this.changeChecked} 
+              />
+            </div>            
           )}/>
           <Route exact path='/done' render={() => (
-            <TodoApp
-              todos={doneTodos}
-              deleteTodo={this.deleteTodo}
-              addTod
-              o={this.addTodo}
-              changeChecked={this.changeChecked}
-            />
+            <div>
+              <AddTodo addTodo={this.addTodo} />
+              <List 
+                todos={doneTodos} 
+                deleteTodo={this.deleteTodo}  
+                changeChecked={this.changeChecked} 
+              />
+            </div>
           )}/>
         </div>
       </BrowserRouter>
