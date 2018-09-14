@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 0,
+      "todo": "sampleTodo",
+      "checked": false
+    },
+    {
+      "id": 1,
+      "todo": "Todo",
+      "checked": false
+    },
+    {
+      "id": 3,
+      "todo": "sample",
+      "checked": true
+    }
+  ]
+}

@@ -12,8 +12,9 @@ export class AddTodo extends React.Component {
   }
 
   handleSubmit = event => {
+    const { todo } = this.state
     event.preventDefault();
-    this.props.addTodo(this.state.todo);
+    this.props.addTodo(todo);
     this.setState({todo: ""});
   }
 

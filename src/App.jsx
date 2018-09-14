@@ -10,9 +10,60 @@ import { AddTodo } from './components/AddTodo';
       todos:[
               //id:0, todo: text, checked: false
             ],
-      nextId: 0
+      nextId: 4
     };
   }
+
+  //API------
+
+  //apiから情報を取ってきて表示
+  componentDidMount() {
+    fetch('http://localhost:3000/todos')
+      .then(response => response.json())
+      .then(data => this.setState({
+        todos: data
+        }));
+  }
+
+  //apiにpost（ToDoを追加）
+  postTodoToAPI  = ({id: id, todo: todo, checked: checked}) => {
+    return fetch('http://localhost:3000/todos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'id': id,
+            'todo': todo,
+            'checked': false
+        })
+    }).then(res => res.json());
+
+};
+
+  // apiにput（chenkboxが押された時にcheckedのtrue/falseを切り替える）
+  putTodoToAPI  = ({id: id, todo: todo, checked: checked}) => {
+    return fetch('http://localhost:3000/todos/' + id, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'id': id,
+            'todo': todo,
+            'checked': !checked
+        })
+    }).then(res => res.json());
+};
+
+//apiからdelete
+ deleteTodoFromAPI = id => {
+    return fetch('http://localhost:3000/todos/' + id, {
+        method: 'DELETE'
+    }).then(res => res.json());
+};
+
+//API------
 
   // ToDoを追加
   addTodo = todo => {
@@ -21,6 +72,7 @@ import { AddTodo } from './components/AddTodo';
       todos: [...this.state.todos, {id: nextId, todo: todo, checked: false}],
       nextId: nextId + 1
     })
+    this.postTodoToAPI({id: nextId, todo: todo, checked: false})
   };
 
   //todoを消す
@@ -30,7 +82,8 @@ import { AddTodo } from './components/AddTodo';
         return todo.id != id ;
       })
     });
-  }
+    this.deleteTodoFromAPI(id)
+  };
 
   // chenkboxが押された時にcheckedのtrue/falseを切り替える
   changeChecked = id => {
@@ -39,6 +92,7 @@ import { AddTodo } from './components/AddTodo';
         return todo.id == id
     });
     todos[index] = {id:id, todo: todos[index].todo, checked: !todos[index].checked}
+    this.putTodoToAPI({id: id, todo: todos[index].todo, checked: !todos[index].checked})
     this.setState({
       todos: todos
     })
@@ -67,7 +121,7 @@ import { AddTodo } from './components/AddTodo';
           
           <Route exact path='/' render={() => (
             <div>
-              <AddTodo addTodo={this.addTodo} />
+              <AddTodo addTodo={this.addTodo}/>
               <List 
                 todos={this.state.todos} 
                 deleteTodo={this.deleteTodo}  
